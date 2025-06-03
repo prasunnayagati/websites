@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Task Master - To-Do List App</title>
+    <link rel="stylesheet" href="todo.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1><i class="fas fa-check-circle"></i> Task Master</h1>
+            <p>Your personal task management solution</p>
+        </header>
+
+        <div class="todo-container">
+            <div class="add-task">
+                <form id="task-form">
+                    <input type="text" id="task-input" placeholder="Add a new task..." required>
+                    <select id="priority-select">
+                        <option value="low">Low Priority</option>
+                        <option value="medium" selected>Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                    <select id="category-select">
+                        <option value="personal">Personal</option>
+                        <option value="work" selected>Work</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="other">Other</option>
+                    </select>
+                    <button type="submit" id="add-button">
+                        <i class="fas fa-plus"></i> Add Task
+                    </button>
+                </form>
+            </div>
+
+            <div class="filters">
+                <div class="filter-options">
+                    <button class="filter-btn active" data-filter="all">All</button>
+                    <button class="filter-btn" data-filter="active">Active</button>
+                    <button class="filter-btn" data-filter="completed">Completed</button>
+                </div>
+                <div class="sort-options">
+                    <label for="sort-select">Sort by:</label>
+                    <select id="sort-select">
+                        <option value="added">Date Added</option>
+                        <option value="priority">Priority</option>
+                        <option value="category">Category</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="tasks-container">
+                <ul id="task-list">
+                    <!-- Tasks will be added here dynamically -->
+                </ul>
+            </div>
+
+            <div class="task-stats">
+                <p><span id="tasks-counter">0</span> tasks left</p>
+                <button id="clear-completed">Clear Completed</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Task Edit Modal -->
+    <div id="edit-modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2>Edit Task</h2>
+            <form id="edit-form">
+                <input type="hidden" id="edit-id">
+                <div class="form-group">
+                    <label for="edit-text">Task:</label>
+                    <input type="text" id="edit-text" required>
+                </div>
+                <div class="form-group">
+                    <label for="edit-priority">Priority:</label>
+                    <select id="edit-priority">
+                        <option value="low">Low Priority</option>
+                        <option value="medium">Medium Priority</option>
+                        <option value="high">High Priority</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="edit-category">Category:</label>
+                    <select id="edit-category">
+                        <option value="personal">Personal</option>
+                        <option value="work">Work</option>
+                        <option value="shopping">Shopping</option>
+                        <option value="other">Other</option>
+                    </select>
+                </div>
+                <button type="submit" id="save-edit">Save Changes</button>
+            </form>
+        </div>
+    </div>
+
+    <script src="todo.js"></script>
+</body>
+</html>
